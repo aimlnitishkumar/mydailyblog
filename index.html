@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Daily Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900 flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600 tracking-tight">DailyThoughts.</h1>
+            <button id="openModalBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-lg transition duration-200">
+                + Write Post
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-8 flex-grow w-full">
+        <h2 class="text-xl font-semibold mb-6 text-gray-700">Recent Stories</h2>
+        
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="col-span-full text-center py-12 text-gray-400">Loading your daily stories...</div>
+        </div>
+    </main>
+
+    <div id="uploadModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl max-w-lg w-full p-6 shadow-2xl transform transition-all">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Publish a New Blog</h3>
+                <button id="closeModalBtn" class="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+            </div>
+            <form id="blogForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                    <input type="text" id="postTitle" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                    <textarea id="postContent" rows="6" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 rounded-lg transition duration-200">
+                    Publish Post
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-gray-200 py-6 mt-12">
+        <div class="max-w-5xl mx-auto px-4 text-center text-sm text-gray-500">
+            &copy; 2026 DailyThoughts. Built for creators.
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
